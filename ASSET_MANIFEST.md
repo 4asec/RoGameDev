@@ -32,35 +32,37 @@ All third-party assets evaluated from the Roblox Creator Store must undergo mand
 - **Creator:** Crankneedle0649
 - **Asset Type:** Model (130 parts, modular skyscrapers and shophouses)
 - **Price:** Free (`$0.00`)
-- **Script Status:** **CLEAN (No scripts detected in metadata)**
-- **Scale:** Suitable (`173 x 253 x 268 studs` footprint, easily separated into individual modular towers)
+- **Script Status:** **ACCEPTED & SANITIZED (2 foreign scripts stripped)**
+- **Scale:** Suitable (`173 x 253 x 268 studs` footprint, placed at Z = -110 as non-collidable background skyline)
 - **Visual Quality & Fit:** **9/10** — Excellent low-poly stylized urban architecture; clean geometry with solid silhouette separation. Perfect for Sudirman CBD background.
+- **Production Status:** **INGESTED INTO VERTICAL SLICE**
 
-#### 2. Brada's City Building Pack
+#### 2. Brada's City Building Pack (EVALUATED & REJECTED)
 - **Asset Name:** Brada's City Building Pack
 - **Asset ID:** `6748603434`
 - **Creator Store Link:** [View on Creator Store](https://create.roblox.com/store/asset/6748603434)
 - **Creator:** BattleBrada
-- **Asset Type:** Model (2 regular houses, 1 commercial hub, 1 office building)
+- **Asset Type:** Model (1,998 primitive parts, 0 meshes)
 - **Price:** Free (`$0.00`)
-- **Script Status:** **CLEAN**
-- **Scale:** Suitable (2-story houses match the 12-14 stud story standard)
-- **Visual Quality & Fit:** **8.5/10** — Playful cartoon proportions with bevels reminiscent of *Overcooked*. Ideal for Gang Senggol perimeter.
-
-#### 3. Montanha Stylized Clean Building Mesh Pack
-- **Asset Name:** Montanha lowpoly Stylized Clean Building Mesh Pack
-- **Asset ID:** `119127415825980`
-- **Creator Store Link:** [View on Creator Store](https://create.roblox.com/store/asset/119127415825980)
-- **Creator:** XzThornOiIce7zX
-- **Asset Type:** Model (Modular MeshParts)
-- **Price:** Free (`$0.00`)
-- **Script Status:** **CLEAN**
-- **Scale:** Modular grid compatible (snaps to 4/8 studs)
-- **Visual Quality & Fit:** **8/10** — Clean flat-shaded pastel aesthetic, great for modern commercial facades.
+- **Script Status:** Clean (0 scripts)
+- **Scale:** Extremely heavy instance count
+- **Visual Quality & Fit:** **REJECTED** — Contains 1,998 individual primitive plastic parts for only 3 buildings. Exceeds the strict instance budget and violates the "no primitive part stacking" directive.
+- **Production Status:** **REJECTED & REMOVED FROM STAGING**
 
 ---
 
-### Category B: Modular Road Systems
+### Category G: Train Station Assets
+
+#### 1. Indonesian Train Station (Platform & Canopy) (EVALUATED & REJECTED)
+- **Asset Name:** 🇮🇩 Indonesian Train Station Kereta Api RP
+- **Asset ID:** `138136455459066`
+- **Creator Store Link:** [View on Creator Store](https://create.roblox.com/store/asset/138136455459066)
+- **Creator:** Swift_Hawk75404
+- **Asset Type:** Model (577 parts, 0 meshes)
+- **Script Status:** 1 script removed
+- **Scale:** Miniature RO-scale (`9.4 x 5.0 x 29.5 studs`, tabletop scale)
+- **Visual Quality & Fit:** **REJECTED** — Built for miniature tabletop train displays, not standard avatar scale. Replaced with bespoke Gambir heritage platform deck + arched steel truss canopy + full-scale KAI coach.
+- **Production Status:** **REJECTED & REMOVED FROM STAGING**
 
 #### 1. Road Model Pack (Modular System)
 - **Asset Name:** Road model pack
