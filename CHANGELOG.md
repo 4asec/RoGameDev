@@ -7,20 +7,55 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2026-11-08
+
+### Added
+- **Visual Redesign Vertical Slice (Jakarta Slice 1 - Gambir & Warkop):**
+  - **Art Direction Reset**: Replaced primitive blockout with a cohesive **Stylized 3D Cartoon Diorama** aesthetic.
+  - **Atmosphere & Lighting Recipe**:
+    - Tuned `Lighting.TimeOfDay` to warm golden hour (`16:45:00`).
+    - Added `ColorCorrectionEffect` (warm cream tint, boosted saturation and contrast).
+    - Tuned `Atmosphere` with soft tropical haze and sunset decay.
+    - Added `BloomEffect` and `SunRaysEffect` for atmospheric street glow.
+  - **Stasiun Gambir Concourse & Track**:
+    - Detailed platform deck with yellow tactile warning line.
+    - Arched steel truss canopy roof with support pillars and crossbeams.
+    - Hanging vintage station sign & clock (`STASIUN GAMBIR — 16:45 WIB`).
+    - Wooden platform benches, iron legs, and warm glowing platform lanterns.
+    - Ballast gravel bed with wooden ties and steel rails.
+  - **KAI Executive Passenger Train**:
+    - Proportioned passenger carriage in signature KAI livery (off-white body, navy blue and orange stripes).
+    - Open sliding passenger entrance door with metal boarding step.
+    - Tinted side glass windows and dark undercarriage bogies.
+  - **Street Transition & Iconic Indonesian Details**:
+    - Stone exit steps with metal handrails leading seamlessly from platform to sidewalk.
+    - Paved sidewalk bordered by iconic black-and-white painted concrete curb stones.
+    - Asphalt roadway with crisp white painted pedestrian zebra cross.
+  - **Authentic Warkop Cuan**:
+    - Wooden kiosk structure with open counter window.
+    - Hanging multi-colored sachet drink strips.
+    - Gorengan glass display cabinet with golden fried snacks.
+    - Mini gas stove with metallic water kettle.
+    - Blue tarpaulin canopy with timber struts, long wooden bench, and red/blue plastic stools.
+  - **Urban Clutter & Storytelling**:
+    - Round concrete utility pole (Tiang Listrik) with transformer drum and sagging overhead power cables.
+    - Parked Indonesian motor scooter (matic) with headlight and handlebars.
+    - Sidewalk tree planter with tropical shade tree (Pohon Peneduh).
+  - **Embedded 3D Board Pedestals**:
+    - Replaced floating boxes with embedded circular brass-and-gemstone medallions flush in the pavement.
+    - Holographic category beacons with point lights (`[START] 🚆` and `[USAHA] 🏪`).
+    - Luminous golden dotted trajectory line on paving stones.
+
+---
+
 ## [0.3.0] - 2026-11-08
 
 ### Added
 - **3D Indonesian City Environment (`EnvironmentService.luau`):**
-  - Connected dark asphalt roads with yellow dashed center lines and concrete curbs/sidewalks across all 13 board nodes.
-  - **Tugu Monas Landmark** at FINISH plaza: Multi-tiered marble podium, grand obelisk spire (85 studs tall), top observation deck, and glowing golden flame of independence with PointLight.
-  - **Stasiun Gambir Landmark** at START: Raised concrete platform with structural canopy beams, train tracks with rails/ties, and 3D Indonesian Executive Train carriage in signature KAI livery.
-  - **Jalan Sudirman Modern District**: Dual high-rise skyscrapers (120 studs glass tower with glowing neon window grids), Bank Kota Sudirman with classical marble pillars and ATM sign, and Restoran Sultan.
-  - **Gang Senggol Traditional District**: Authentic *Warung Madura 24 Jam* with red-and-white awning and 3kg green LPG cylinder stack, traditional *Pos Ronda Kamling* with bamboo pillars and wooden kentongan, and *Warkop Cuan*.
-  - **Taman Suropati Checkpoint**: Green urban park with stone fountain basin and tropical shade trees.
-  - Street lighting network with overhead metal lamps and traffic signals at branching intersections.
-  - Upgraded all 13 board game tiles from plain blocks into sleek, high-visibility 3D game pedestals with glowing neon borders, category badges, and emoji icons.
+  - Connected asphalt road network, sidewalks, and lane markings.
+  - Tugu Monas landmark, Stasiun Gambir, Sudirman skyscrapers, and street props.
 - **GitHub Integration:**
-  - Published public repository `https://github.com/4asec/RoGameDev` and pushed initial releases cleanly.
+  - Published public repository `https://github.com/4asec/RoGameDev` and pushed initial releases.
 
 ---
 
@@ -29,32 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Core Architecture & Foundation (`src/`):**
   - Modular Rojo-ready architecture (`default.project.json`) partitioned into `Server/`, `Client/`, and `Shared/`.
-  - Shared Configs: `GameConfig.luau`, `EconomyConfig.luau`, `PropertyConfig.luau`, `EventConfig.luau`.
-  - Shared Network: `RemoteDefinitions.luau` defining RemoteEvents and RemoteFunctions.
-  - Shared Types: `BoardTypes.luau`, `MatchTypes.luau`.
-  - Shared Utils: `MathUtil.luau` (Rupiah formatting & math helpers), `TableUtil.luau`.
-- **Server Services (`src/Server/Services/`):**
-  - `DiceService`: Cryptographically secure server-authoritative dice rolling engine.
-  - `BoardService`: 3D Open City Board graph system featuring the Jakarta Monas circuit with branching paths (*Jalan Sudirman* vs *Gang Senggol*).
-  - `MovementService`: Path traversal calculations, intersection detection, and waypoint interpolation.
-  - `EconomyService`: Transactional player balance mutations, overdraft protection, and final score evaluation.
-  - `PropertyService`: Property purchase, tier 1–3 upgrade system, and automated rent collection.
-  - `BankService`: Debt tracking, multi-loan limits, 5% per-turn interest accumulation, and repayment systems.
-  - `InvestmentService`: Speculative dice outcome betting system over 3 rounds with dividend distribution.
-  - `EventService`: Absurd Indonesian random events framework (*Tukang Parkir Gaib*, *Emak Sein Kiri*, *Bansos Nyasar*) and government policies.
-  - `TurnService`: Sequential turn cycling, 25-second countdown timers, and skip logic.
-  - `DisconnectService`: 7-minute connection grace period manager.
-  - `AIPlayerService`: Heuristic autonomous bot fallback for disconnected players.
-  - `PlayerDataService`: Persistent DataStore caching and session loading.
-  - `MatchService`: Central match coordinator and finish line podium evaluator.
-- **Client Controllers (`src/Client/Controllers/`):**
-  - `BoardVisualController`: 3D tile rendering in Workspace and character movement animation.
-  - `CameraController`: Contextual isometric camera with character tracking and smooth tweens.
-  - `UIController`: Full responsive in-game HUD with turn banners, animated roll button, branch selector modal, event pop-ups, and podium results.
-- **Roblox Studio Integration:**
-  - Injected complete service and controller hierarchy into live Studio DataModel (`Place2`).
-  - Generated 13 3D visual board tiles in Workspace.
-  - Verified playtest execution in Studio with zero runtime errors.
+  - 13 Server Services, 3 Client Controllers, 4 Configs, Remotes, Types, and Utils.
 
 ---
 
@@ -62,15 +72,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initialized local Git repository on branch `main` at `D:\RoGameDev`.
-- Inspected environment tools (Git v2.54.0, Roblox Studio MCP bridge active on `Place2`).
-- Established comprehensive documentation suite:
-  - `GDD.md`: Complete Game Design Document.
-  - `TECHNICAL_DESIGN.md`: Full Luau service architecture and server-authoritative network contract.
-  - `UI_UX_GUIDELINES.md`: Visual identity, design tokens, responsive layout blueprints, and animation rules.
-  - `ECONOMY_DESIGN.md`: Dual currency model, property pricing, dice investment math, bank loans, and end-game scoring formulas.
-  - `EVENT_DESIGN.md`: Data-driven event schema, rarity weighting, Indonesian absurd event catalog, and policy system.
-  - `DEVELOPMENT_ROADMAP.md`: Structured 10-phase execution plan from foundation to release readiness.
-  - `TESTING_PLAN.md`: Verification matrices, multiplayer scaling tests, and exploit prevention checks.
-  - `OPEN_DECISIONS.md`: Decision tracker for game title proposals, economic parameters, and turn timers.
-  - `README.md`: Professional project landing page with architecture diagram and setup instructions.
-  - `CONTRIBUTING.md`: Workflow standards, commit policies, and pull request guidelines.
+- Established comprehensive documentation suite.
