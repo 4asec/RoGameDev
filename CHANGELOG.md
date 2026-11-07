@@ -7,6 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.0] - 2026-11-08
+
+### Added
+- **Jakarta Vertical Slice Spatial Rework & Reassembly (`WargaParty_VerticalSlice`)**:
+  - **Fase 1 — Comprehensive Spatial Audit**:
+    - Ran automated AABB bounding box collision and overlap detection across all slice instances.
+    - Diagnosed root causes of 152 physical collisions:
+      1. Background Skyline (`MetropolitanSkyline_Background`, depth 268 studs) swallowed the midground and foreground down to `Z = +24`.
+      2. KAI Train consist imported a 4-coach diagonal set (297 studs wide), cutting across platform, road, and shophouses.
+      3. Overhead traffic signal gantry (`JunctionTrafficLight_East`, width 33.6 studs) pivoted at gantry center rather than mast base, penetrating culinary stalls.
+      4. Bajaj parked at `(-10, 0.8, 20)` collided with station stairs and sat directly on top of board tile `N_02`.
+      5. Warung Pecel Lele and Mamang Bakso food stalls clipped together and into the shophouse facade.
+  - **Fase 2 — Master Spatial Layout (7 Distinct Zones)**:
+    - Designed unified 2D/3D non-overlapping coordinate matrix:
+      - *Zona 1: Stasiun Gambir Concourse & Platform* (`X = -36..-20`, `Z = -45..+45`)
+      - *Zona 2: Area Rel & Peron Kereta* (`X = -52..-40`, `Z = -45..+45`)
+      - *Zona 3: Plaza Stasiun & Pangkalan Bajaj* (`X = -14..-7.5`, `Z = -50..+50`)
+      - *Zona 4: Jalan Protokol & Zebra Crossing* (`X = -7.5..+16.5`, `Z = -50..+50`)
+      - *Zona 5: Persimpangan Utama & Sinyal Lalu Lintas* (`X = 16.2`, `Z = 22.0`)
+      - *Zona 6: Gang Senggol Promenade & Area Kuliner* (`X = 16.5..43.0`, `Z = -50..+50`)
+      - *Zona 7: Background Metropolitan Framing* (`Z = -185.0`)
+  - **Fase 3 — Clean Model Reassembly & Organization**:
+    - Restructured into 5 standardized folders: `Infrastruktur`, `StasiunGambir`, `DistrikGangSenggol`, `DekorasiStreetProps`, `BoardGameplay`.
+    - Isolated single authentic KAI Executive Coach (`K1 0 96`, 74.6 x 10.0 x 12.4 studs) seated flush on rails at `X = -46` with 4.5-stud platform boarding gap.
+    - Set traffic light gantry `PrimaryPart` to mast base concrete footing on East curb with cantilever arm spanning cleanly over zebra crossing.
+    - Relocated Bajaj to dedicated pick-up bay at North plaza (`X = -10.5, Z = -28`), clear of all stairs and board tiles.
+    - Scaled stylized 3D foliage (`StylizedTreePack`, 0.35x and 0.30x) into dedicated sidewalk planter zones.
+    - Moved culinary stalls with 16-stud walkway between Mamang Bakso and Warung Pecel Lele, clear of shophouse facades.
+    - Archived legacy prototype instances into `ServerStorage.LegacyArchive`.
+    - Embedded glowing board tiles and arc trajectory guide dots flush into walkable surfaces.
+    - Repositioned player `SpawnLocation` to platform arrival tile `N_START`.
+    - Achieved **0 macro collisions** across all structural models.
+  - **Fase 4 — Multi-Angle Visual Review & Profiling in Play Mode**:
+    - Captured 4 verification perspectives: Top-Down (`rework_topdown_view.jpg`), Isometric Overview (`rework_isometric_overview.jpg`), Ground Street-level (`rework_ground_streetview.jpg`), and Gameplay Camera (`rework_gameplay_camera.jpg`).
+    - Benchmarked live Play Mode performance: steady 60 FPS, 1,148 vertical slice descendants, nominal memory footprint.
+
+---
+
 ## [0.6.0] - 2026-11-08
 
 ### Added

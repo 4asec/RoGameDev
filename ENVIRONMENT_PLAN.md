@@ -97,28 +97,51 @@ The Jakarta game board is engineered as an **organic, contiguous 3D metropolis**
 
 ## 3. ROAD TOPOLOGY & INTEGRATED BOARD NETWORK
 
-### A. Vertical Slice 1 Active Coordinates & Zone Boundaries
-- **Center of Roadway:** `X = 5, Y = 0.2, Z = 0` (Main Protocol Avenue).
-- **Gambir Platform 1 & Track:** `X = -44` (Rails) to `X = -27` (Platform deck), `Z = -45 to +45`.
-- **Station Concourse Steps & Ramp:** `X = -18 to -13, Z = -20 to +20` (Stepped descent from Y = 2.5 to Y = 0.8).
-- **West Sidewalk & Pangkalan Bajaj:** `X = -10, Y = 0.8, Z = -50 to +50`.
-- **Pedestrian Zebra Crossing:** `Z = 24 to 34, X = -6.5 to +16.5`.
-- **East Sidewalk & Gang Senggol Promenade:** `X = 22, Y = 0.8, Z = -50 to +50`.
-- **Warung Pecel Lele & Street Food Hub:** `X = 27, Y = 0.8, Z = 34`.
-- **Background Skyline Framing:** `X = -20, Y = 0, Z = -110` (Non-collidable background).
+### A. Vertical Slice 1 Reworked Coordinates & Non-Overlapping Zone Boundaries
+- **Slice Ground Foundation:** `X = 0, Y = -2.0, Z = 0` (Solid concrete diorama slab: `120 x 4 x 120` studs, eliminating all void).
+- **Zona 1 & 2: Gambir Platform & Track:**
+  - Steel Rails & Ties: `X = -46.0, Y = 1.1, Z = 0` (Gravel bed width 14 studs, length 100 studs).
+  - Single **KAI Executive Coach** (`K1 0 96`): `X = -46.0, Y = 7.6, Z = 0.0` (Dimensions: `10.0 x 12.4 x 74.6` studs). Clearance to platform edge: 4.5 studs.
+  - Platform Deck: `X = -28.0, Y = 1.25, Z = 0.0` (Dimensions: `16 x 2.5 x 90` studs).
+  - Tactile Yellow Warning Line: `X = -35.4, Y = 2.53, Z = 0.0`.
+  - Station Steel Canopy: Roof `X = -27.5, Y = 18.9, Z = 0.0` with warm platform lanterns.
+- **Zona 3: Station Transition Steps & West Plaza:**
+  - 5-Tier Broad Stone Steps: `X = -19.4 to -14.6, Y = 2.16 down to 0.80, Z = 0` (40 studs wide).
+  - West Sidewalk Plaza: `X = -10.75, Y = 0.4, Z = 0` (Width 6.5 studs, length 100 studs).
+  - Pangkalan Bajaj: Parked at North bay `X = -10.5, Y = 0.85, Z = -28.0` (Clear of stairs and board tiles).
+  - Stylized Sidewalk Tree: Planter at `X = -10.5, Y = 0.85, Z = -38.0`.
+  - PJU Street Light Pole: `X = -7.8, Y = 7.4, Z = -10.0`.
+- **Zona 4: Protocol Avenue & Zebra Crossing:**
+  - Two-Lane Asphalt Road: `X = 4.5, Y = 0.2, Z = 0` (Width 24 studs, length 100 studs).
+  - Dashed Yellow Centerline: Along `X = 4.5`.
+  - Pedestrian Zebra Crossing: `Z = 24 to 34, X = -5.5 to +14.5` (White stripes on asphalt).
+- **Zona 5: Persimpangan Utama & Traffic Light Gantry:**
+  - Sinyal Gantry Overhead: Mast base anchored on East curb at `X = 16.2, Y = 0.85, Z = 22.0`, cantilever arm extends across road over zebra crossing.
+- **Zona 6: Gang Senggol Promenade & Sentra Kuliner:**
+  - East Sidewalk Promenade: `X = 21.5, Y = 0.4, Z = 0` (Width 10 studs, length 100 studs).
+  - Culinary Ground Strip: `X = 33.5, Y = 0.4, Z = 0` (Width 14 studs, pebble finish).
+  - Gerobak Bakso Mamang: `X = 30.5, Y = 0.85, Z = 4.0`.
+  - Warung Pecel Lele Tenda: `X = 33.5, Y = 0.85, Z = 32.0` (16 studs pedestrian clearance between food stalls).
+  - Stylized Shade Tree: Planter at `X = 21.5, Y = 0.85, Z = -20.0`.
+  - Shophouse Facades (Ruko): Wall at `X = 43.0, Y = 12.0, Z = 15.0` with rolling metal doors and colorful canvas awnings.
+- **Zona 7: Background Metropolitan Skyline Framing:**
+  - Distant Skyscrapers: `X = -10.0, Y = 0.0, Z = -185.0` (Front edge at `Z = -51.0`, strictly behind slice boundary `Z <= -50`).
 
 ### B. Vertical Slice Board Nodes (Embedded 3D Pedestals)
 
 | Node ID | Physical Coordinates (Vector3) | District / Location | Node Type | Gameplay & Visual Treatment |
 | :--- | :--- | :--- | :--- | :--- |
-| `N_START` | `(-26.0, 2.56, 0.0)` | Gambir Platform 1 | Start | Golden stone slab with 🚆 train icon; player arrival point. |
-| `N_01` | `(-18.0, 2.56, 12.0)` | Concourse Tiket Gambir | Opportunity | Emerald luck slab with 🪙 Rupiah coin; chance event. |
-| `N_02` | `(-10.0, 0.86, 22.0)` | Pangkalan Bajaj Gambir | Property | Transit blue slab with 🛺 bajaj emblem; purchasable kiosk. |
-| `N_03` | `(-8.0, 0.86, 29.0)` | Penyeberangan Zebra Cross | Event | Coral warning slab with ⚠️ exclamation; traffic check. |
-| `N_BRANCH_01` | `(5.0, 0.46, 29.0)` | Simpang Senayan / Zebra Cross | Branch | Golden crossroads slab with 🔀 branch fork indicator. |
-| `N_GANG_01` | `(18.0, 0.86, 29.0)` | Kios Sayur Gang Senggol | Property | Orange commercial slab with 🏪 kiosk icon; affordable shop. |
-| `N_GANG_02` | `(22.0, 0.86, 36.0)` | Warung Pecel Lele Cak Slamet | Property | Caramel culinary slab with 🍲 meal badge; high-return eatery. |
-| `N_FINISH` | `(22.0, 0.86, 50.0)` | Monas Plaza Showcase | Finish | Golden finish victory pedestal. |
+| `N_START` | `(-26.0, 2.56, 0.0)` | Gambir Platform 1 | Start | Golden beveled medallion with 🚆 train icon; player arrival point. |
+| `N_01` | `(-17.5, 2.56, 14.0)` | Concourse Tiket Gambir | Opportunity | Emerald luck medallion with 🪙 Rupiah coin; chance event. |
+| `N_02` | `(-10.5, 0.86, 16.0)` | Pangkalan Bajaj Gambir | Property | Transit blue medallion with 🛺 bajaj emblem; purchasable kiosk. |
+| `N_03` | `(-7.5, 0.86, 29.0)` | Penyeberangan Zebra Barat | Event | Coral warning medallion with ⚠️ exclamation; traffic check. |
+| `N_BRANCH_01` | `(4.5, 0.46, 29.0)` | Simpang Senayan / Zebra Cross | Branch | Golden crossroads medallion with 🔀 branch fork indicator. |
+| `N_GANG_01` | `(21.0, 0.86, 29.0)` | Sentra Kuliner Gang Senggol | Culinary | Red culinary medallion with 🍲 meal badge; high-return eatery. |
+| `N_GANG_02` | `(21.0, 0.86, 42.0)` | Gang Senggol Promenade | Social | Green community medallion with 🏪 kiosk icon; leads to Pasar. |
+
+### C. Automated Spatial Collision Audit Results
+- **Initial Structural Conflicts:** 152 collisions (skyline engulfment, train diagonal span, gantry offset penetration, Bajaj on tile N_02, food stalls touching shophouses).
+- **Post-Rework Macro Conflicts:** **0 conflicts** (100% verified non-overlapping AABB geometry).
 
 ---
 
