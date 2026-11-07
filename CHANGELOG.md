@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.0] - 2026-11-08
+
+### Added
+- **Phase 1: Professional 3D Asset Research & Visual Benchmark:**
+  - **Art Direction Standard (`STYLE_GUIDE.md`)**:
+    - Synthesized triad of *Mario Party* (readability), *Animal Crossing* (tactile charm), and *Overcooked* (chunky stylized 3D).
+    - Established strict metric scale system benchmarked against R15 avatars (5 studs height, 12-14 stud story height, 24-stud road lanes).
+    - Standardized functional board tile color coding and Future Lighting configuration.
+  - **Asset Manifest & Ingestion Catalog (`ASSET_MANIFEST.md`)**:
+    - Complete research and safety audit of 20+ assets across 10 categories from Creator Store.
+    - Sourced clean, vetted low-poly building packs, modular roads, sidewalks, vegetation, authentic Indonesian street props (Bajaj, Angkot, Warung Pecel Lele, Gerobak Bakso, Traffic Lights), KAI passenger trains, and Monas tower.
+    - Defined strict Script Sanitization Protocol (stripping 100% foreign executable scripts).
+  - **Jakarta Master Environment Plan (`ENVIRONMENT_PLAN.md`)**:
+    - Designed 384x384 stud continuous urban master layout with 4 distinct districts (Gambir Gateway, Sudirman CBD, Gang Senggol, Monas Plaza).
+    - Integrated 24-node board route with branching mechanics (Senayan T-junction) and convergence at Bunderan HI / Monas.
+    - Specified camera choreography (Isometric -42° pitch, 45° yaw, FOV 48).
+  - **Technical Engine Limits (`TECHNICAL_LIMITATIONS.md`)**:
+    - Established strict engine budgets for 60 FPS mobile performance (1,400 - 1,800 max instances, < 350k tris, < 280 MB RAM).
+    - Defined Studio MCP automation boundaries and external Blender pipeline for custom Indonesian assets.
+
+---
+
 ## [0.4.0] - 2026-11-08
 
 ### Added
