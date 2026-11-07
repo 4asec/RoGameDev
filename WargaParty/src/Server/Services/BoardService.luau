@@ -18,116 +18,77 @@ local currentMap: BoardMap? = nil
 -- Constructs the canonical Jakarta map with branching paths converging at FINISH (Monas Plaza)
 function BoardService.LoadJakartaMap(): BoardMap
     local nodes: { [string]: BoardNode } = {
-        -- Node 1: Start (Stasiun Gambir)
+        -- Node 1: Start (Stasiun Gambir Platform 1)
         N_START = {
             Id = "N_START",
-            Name = "Stasiun Gambir (Start)",
+            Name = "Stasiun Gambir (Peron 1)",
             NodeType = "Start",
-            Position = Vector3.new(0, 3, 0),
+            Position = Vector3.new(-26, 2.56, 0),
+            NextNodes = { "N_01" },
+        },
+        
+        -- Node 2: Concourse Gambir
+        N_01 = {
+            Id = "N_01",
+            Name = "Concourse Tiket Gambir",
+            NodeType = "Opportunity",
+            Position = Vector3.new(-18, 2.56, 12),
             NextNodes = { "N_02" },
         },
         
-        -- Node 2: Property (Warkop Cuan)
+        -- Node 3: Pangkalan Bajaj Gambir
         N_02 = {
             Id = "N_02",
-            Name = "Warkop Cuan 24 Jam",
+            Name = "Pangkalan Bajaj Gambir",
             NodeType = "Property",
             PropertyId = "JKT_01",
-            Position = Vector3.new(0, 3, 20),
+            Position = Vector3.new(-10, 0.86, 22),
             NextNodes = { "N_03" },
         },
         
-        -- Node 3: Event
+        -- Node 4: Zebra Cross Sidewalk
         N_03 = {
             Id = "N_03",
-            Name = "Simpang Lima",
+            Name = "Penyeberangan Zebra Cross",
             NodeType = "Event",
-            Position = Vector3.new(0, 3, 40),
+            Position = Vector3.new(-8, 0.86, 29),
             NextNodes = { "N_BRANCH_01" },
         },
         
-        -- Node 4: Branch Intersection! (Jalan Sudirman vs Gang Senggol)
+        -- Node 5: Branch Intersection (Zebra Cross Center)
         N_BRANCH_01 = {
             Id = "N_BRANCH_01",
-            Name = "Persimpangan Bundaran",
+            Name = "Simpang Senayan & Gang Senggol",
             NodeType = "Branch",
-            Position = Vector3.new(0, 3, 60),
-            NextNodes = { "N_SUD_01", "N_GANG_01" },
-            BranchLabels = { "Jalan Raya Sudirman (Aman & Mewah)", "Gang Senggol (Pintas & Penuh Kejutan)" }
+            Position = Vector3.new(5, 0.46, 29),
+            NextNodes = { "N_GANG_01" },
+            BranchLabels = { "Gang Senggol & Kuliner" }
         },
         
-        -- Route A: Sudirman Boulevard (Wider, higher properties, bank)
-        N_SUD_01 = {
-            Id = "N_SUD_01",
-            Name = "Bank Kota Sudirman",
-            NodeType = "Bank",
-            Position = Vector3.new(-30, 3, 80),
-            NextNodes = { "N_SUD_02" },
-        },
-        N_SUD_02 = {
-            Id = "N_SUD_02",
-            Name = "Restoran Sultan Sudirman",
-            NodeType = "Property",
-            PropertyId = "JKT_05",
-            Position = Vector3.new(-30, 3, 110),
-            NextNodes = { "N_SUD_03" },
-        },
-        N_SUD_03 = {
-            Id = "N_SUD_03",
-            Name = "Toll Dalam Kota",
-            NodeType = "Toll",
-            TollCost = 500000,
-            Position = Vector3.new(-20, 3, 140),
-            NextNodes = { "N_MERGE_01" },
-        },
-        
-        -- Route B: Gang Senggol (Shortcut, narrow, unpredictable events)
+        -- Route: Gang Senggol (Kuliner & Absurdity)
         N_GANG_01 = {
             Id = "N_GANG_01",
-            Name = "Warung Madura Gang Senggol",
+            Name = "Kios Sayur Gang Senggol",
             NodeType = "Property",
             PropertyId = "JKT_03",
-            Position = Vector3.new(30, 3, 80),
+            Position = Vector3.new(18, 0.86, 29),
             NextNodes = { "N_GANG_02" },
         },
         N_GANG_02 = {
             Id = "N_GANG_02",
-            Name = "Pos Ronda Warga",
-            NodeType = "Event",
-            Position = Vector3.new(20, 3, 120),
-            NextNodes = { "N_MERGE_01" },
-        },
-        
-        -- Merged Hub: Taman Suropati
-        N_MERGE_01 = {
-            Id = "N_MERGE_01",
-            Name = "Taman Suropati (Checkpoint Gajian)",
-            NodeType = "Salary",
-            Position = Vector3.new(0, 3, 170),
-            NextNodes = { "N_08" },
-        },
-        N_08 = {
-            Id = "N_08",
-            Name = "Showroom Motor Idaman",
+            Name = "Warung Pecel Lele Cak Slamet",
             NodeType = "Property",
-            PropertyId = "JKT_06",
-            Position = Vector3.new(0, 3, 200),
-            NextNodes = { "N_09" },
-        },
-        N_09 = {
-            Id = "N_09",
-            Name = "Pusat Investasi Cuan",
-            NodeType = "Bank",
-            Position = Vector3.new(0, 3, 230),
+            PropertyId = "JKT_04",
+            Position = Vector3.new(22, 0.86, 36),
             NextNodes = { "N_FINISH" },
         },
         
-        -- Terminal: Monas Plaza
+        -- Terminal: Monas Plaza Showcase Finish
         N_FINISH = {
             Id = "N_FINISH",
-            Name = "Monas Plaza (FINISH)",
+            Name = "Tugu Monas Plaza",
             NodeType = "Finish",
-            Position = Vector3.new(0, 3, 270),
+            Position = Vector3.new(22, 0.86, 50),
             NextNodes = {},
         }
     }

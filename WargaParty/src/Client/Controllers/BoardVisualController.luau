@@ -19,18 +19,29 @@ BoardVisualController.__index = BoardVisualController
 local boardContainer: Folder? = nil
 
 function BoardVisualController.Initialize()
-    boardContainer = Workspace:FindFirstChild("WargaPartyBoard") :: Folder
-    if not boardContainer then
-        local folder = Instance.new("Folder")
-        folder.Name = "WargaPartyBoard"
-        folder.Parent = Workspace
-        boardContainer = folder
+    local vslice = Workspace:FindFirstChild("WargaParty_VerticalSlice")
+    if vslice and vslice:FindFirstChild("Embedded_Board_Tiles") then
+        boardContainer = vslice.Embedded_Board_Tiles
+    else
+        boardContainer = Workspace:FindFirstChild("WargaPartyBoard") :: Folder
+        if not boardContainer then
+            local folder = Instance.new("Folder")
+            folder.Name = "WargaPartyBoard"
+            folder.Parent = Workspace
+            boardContainer = folder
+        end
     end
 end
 
--- Builds visual 3D tiles in Workspace if not already placed
+-- Connects visual 3D tiles in Workspace with board node metadata
 function BoardVisualController.RenderBoardNodes(nodes: { [string]: BoardNode })
     if not boardContainer then return end
+    
+    -- If using embedded slice tiles, they are already rendered and styled
+    local vslice = Workspace:FindFirstChild("WargaParty_VerticalSlice")
+    if vslice and boardContainer == vslice:FindFirstChild("Embedded_Board_Tiles") then
+        return
+    end
     
     for _, node in pairs(nodes) do
         local existing = boardContainer:FindFirstChild(node.Id)

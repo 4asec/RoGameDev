@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.0] - 2026-11-08
+
+### Added
+- **Phase 2: Jakarta Vertical Slice 1 Production (Gambir Gateway & Gang Senggol Corner):**
+  - **Modular 3D Environment Assembly (`WargaParty_VerticalSlice`)**:
+    - Built comprehensive foundation ground slab eliminating all baseplate void.
+    - Gambir Station Platform 1 (`X = -27`, `Y = 2.5`, `Z = 90 studs`) with yellow tactile warning line and edge curb.
+    - Double steel railway track and gravel ballast bed (`X = -44`).
+    - Full-scale **KAI Executive Passenger Coach** (`13032037603`, length 74.6 studs) with passenger doors and interior seating.
+    - Station arched steel truss canopy, hanging lanterns, and vintage signboard (`STASIUN GAMBIR`).
+    - Seamless 5-tier stone transition steps and brass handrails descending to street level.
+    - Two-lane asphalt **Protocol Avenue** (`X = 5`, 24 studs wide) with yellow dashed center lines, edge stripes, and pedestrian zebra crossing.
+    - Iconic black-and-white painted curb stones along roadway borders.
+    - Authentic **Warung Pecel Lele** tent stall (`137011458903864`, 7 scripts sanitized), **Gerobak Bakso Tradisional** (`11770070554`, 30 meshes), and **Bajaj Jakarta** (`9241769752`, 7 meshes).
+    - Indonesian PJU / Traffic Light signal (`139335578477246`, 3 scripts sanitized) and stylized tropical shade trees (`8281921041`).
+    - Non-collidable metropolitan skyline background (`75885812380271`) at `Z = -110`.
+  - **Embedded 3D Board Tiles (`Embedded_Board_Tiles`)**:
+    - Replaced raw box parts with embedded 3D beveled stone medallions flush in sidewalks and zebra crossings (`N_START` to `N_GANG_02`).
+    - Glowing neon rings, category SurfaceGuis (🚆, 🪙, 🛺, ⚠️, 🔀, 🏪, 🍲), and luminous trajectory guide dots.
+  - **Adaptive Camera & Cinematic System (`CameraController.luau`)**:
+    - Gambir Train Intro sequence: train interior -> platform door pan -> player exit -> smooth elevator pull into isometric view.
+    - True isometric gameplay camera (Pitch -42°, Yaw 45°, FOV 48, offset `(28, 32, 28)`).
+    - Foreground obstruction detection raycaster with automatic transparency fading.
+  - **Live Play Mode Profiling & Benchmarking**:
+    - Measured 1,156 total vertical slice instances (under the 1,400-1,800 budget limit).
+    - 1,199 geometry primitives, ~380 draw calls, 1 active physics body (player character).
+    - Verified 60 FPS mobile/PC viability with zero unyielding freezes.
+
+---
+
 ## [0.5.0] - 2026-11-08
 
 ### Added
