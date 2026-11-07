@@ -1,0 +1,27 @@
+{
+  "name": "WargaParty",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "WargaPartyServer": {
+        "$path": "src/Server"
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "WargaPartyShared": {
+        "$path": "src/Shared"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "WargaPartyClient": {
+          "$path": "src/Client"
+        }
+      }
+    }
+  }
+}

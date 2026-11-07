@@ -7,14 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased]
+## [0.2.0] - 2026-11-08
 
-### Added - 2026-11-08 (Phase 0 Initialization)
+### Added
+- **Core Architecture & Foundation (`src/`):**
+  - Modular Rojo-ready architecture (`default.project.json`) partitioned into `Server/`, `Client/`, and `Shared/`.
+  - Shared Configs: `GameConfig.luau`, `EconomyConfig.luau`, `PropertyConfig.luau`, `EventConfig.luau`.
+  - Shared Network: `RemoteDefinitions.luau` defining RemoteEvents and RemoteFunctions.
+  - Shared Types: `BoardTypes.luau`, `MatchTypes.luau`.
+  - Shared Utils: `MathUtil.luau` (Rupiah formatting & math helpers), `TableUtil.luau`.
+- **Server Services (`src/Server/Services/`):**
+  - `DiceService`: Cryptographically secure server-authoritative dice rolling engine.
+  - `BoardService`: 3D Open City Board graph system featuring the Jakarta Monas circuit with branching paths (*Jalan Sudirman* vs *Gang Senggol*).
+  - `MovementService`: Path traversal calculations, intersection detection, and waypoint interpolation.
+  - `EconomyService`: Transactional player balance mutations, overdraft protection, and final score evaluation.
+  - `PropertyService`: Property purchase, tier 1–3 upgrade system, and automated rent collection.
+  - `BankService`: Debt tracking, multi-loan limits, 5% per-turn interest accumulation, and repayment systems.
+  - `InvestmentService`: Speculative dice outcome betting system over 3 rounds with dividend distribution.
+  - `EventService`: Absurd Indonesian random events framework (*Tukang Parkir Gaib*, *Emak Sein Kiri*, *Bansos Nyasar*) and government policies.
+  - `TurnService`: Sequential turn cycling, 25-second countdown timers, and skip logic.
+  - `DisconnectService`: 7-minute connection grace period manager.
+  - `AIPlayerService`: Heuristic autonomous bot fallback for disconnected players.
+  - `PlayerDataService`: Persistent DataStore caching and session loading.
+  - `MatchService`: Central match coordinator and finish line podium evaluator.
+- **Client Controllers (`src/Client/Controllers/`):**
+  - `BoardVisualController`: 3D tile rendering in Workspace and character movement animation.
+  - `CameraController`: Contextual isometric camera with character tracking and smooth tweens.
+  - `UIController`: Full responsive in-game HUD with turn banners, animated roll button, branch selector modal, event pop-ups, and podium results.
+- **Roblox Studio Integration:**
+  - Injected complete service and controller hierarchy into live Studio DataModel (`Place2`).
+  - Generated 13 3D visual board tiles in Workspace.
+  - Verified playtest execution in Studio with zero runtime errors.
+
+---
+
+## [0.1.0] - 2026-11-08
+
+### Added
 - Initialized local Git repository on branch `main` at `D:\RoGameDev`.
 - Inspected environment tools (Git v2.54.0, Roblox Studio MCP bridge active on `Place2`).
 - Established comprehensive documentation suite:
-  - `GDD.md`: Complete Game Design Document detailing 4 cities, turn loop, hybrid navigation, and comedic themes.
-  - `TECHNICAL_DESIGN.md`: Full Luau service architecture, server-authoritative state model, and network contract.
+  - `GDD.md`: Complete Game Design Document.
+  - `TECHNICAL_DESIGN.md`: Full Luau service architecture and server-authoritative network contract.
   - `UI_UX_GUIDELINES.md`: Visual identity, design tokens, responsive layout blueprints, and animation rules.
   - `ECONOMY_DESIGN.md`: Dual currency model, property pricing, dice investment math, bank loans, and end-game scoring formulas.
   - `EVENT_DESIGN.md`: Data-driven event schema, rarity weighting, Indonesian absurd event catalog, and policy system.
