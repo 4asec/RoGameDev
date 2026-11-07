@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2026-11-08
+
+### Added
+- **3D Indonesian City Environment (`EnvironmentService.luau`):**
+  - Connected dark asphalt roads with yellow dashed center lines and concrete curbs/sidewalks across all 13 board nodes.
+  - **Tugu Monas Landmark** at FINISH plaza: Multi-tiered marble podium, grand obelisk spire (85 studs tall), top observation deck, and glowing golden flame of independence with PointLight.
+  - **Stasiun Gambir Landmark** at START: Raised concrete platform with structural canopy beams, train tracks with rails/ties, and 3D Indonesian Executive Train carriage in signature KAI livery.
+  - **Jalan Sudirman Modern District**: Dual high-rise skyscrapers (120 studs glass tower with glowing neon window grids), Bank Kota Sudirman with classical marble pillars and ATM sign, and Restoran Sultan.
+  - **Gang Senggol Traditional District**: Authentic *Warung Madura 24 Jam* with red-and-white awning and 3kg green LPG cylinder stack, traditional *Pos Ronda Kamling* with bamboo pillars and wooden kentongan, and *Warkop Cuan*.
+  - **Taman Suropati Checkpoint**: Green urban park with stone fountain basin and tropical shade trees.
+  - Street lighting network with overhead metal lamps and traffic signals at branching intersections.
+  - Upgraded all 13 board game tiles from plain blocks into sleek, high-visibility 3D game pedestals with glowing neon borders, category badges, and emoji icons.
+- **GitHub Integration:**
+  - Published public repository `https://github.com/4asec/RoGameDev` and pushed initial releases cleanly.
+
+---
+
 ## [0.2.0] - 2026-11-08
 
 ### Added
