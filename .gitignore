@@ -1,0 +1,17 @@
+# Roblox & Development
+*.rbxlx.lock
+*.rbxl.lock
+
+# Operating System Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE and Editors
+.vscode/
+.idea/
+
+# Environment and Secrets
+*.env
+*.local
+credentials.json
