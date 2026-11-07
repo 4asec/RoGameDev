@@ -97,38 +97,28 @@ The Jakarta game board is engineered as an **organic, contiguous 3D metropolis**
 
 ## 3. ROAD TOPOLOGY & INTEGRATED BOARD NETWORK
 
-### A. Coordinate Budget & Zone Boundaries
-- **Center of World:** `Vector3.new(0, 0, 0)` located at the center of the Sudirman/Gang Senggol intersection.
-- **District 1 (Gambir):** `Z = +120` to `+180` (South zone).
-- **District 2 (Sudirman):** `X = -120` to `-20`, `Z = -40` to `+80` (West boulevard).
-- **District 3 (Gang Senggol):** `X = +20` to `+120`, `Z = -40` to `+80` (East alleyway).
-- **District 4 (Monas):** `X = -80` to `+80`, `Z = -180` to `-80` (North plaza).
+### A. Vertical Slice 1 Active Coordinates & Zone Boundaries
+- **Center of Roadway:** `X = 5, Y = 0.2, Z = 0` (Main Protocol Avenue).
+- **Gambir Platform 1 & Track:** `X = -44` (Rails) to `X = -27` (Platform deck), `Z = -45 to +45`.
+- **Station Concourse Steps & Ramp:** `X = -18 to -13, Z = -20 to +20` (Stepped descent from Y = 2.5 to Y = 0.8).
+- **West Sidewalk & Pangkalan Bajaj:** `X = -10, Y = 0.8, Z = -50 to +50`.
+- **Pedestrian Zebra Crossing:** `Z = 24 to 34, X = -6.5 to +16.5`.
+- **East Sidewalk & Gang Senggol Promenade:** `X = 22, Y = 0.8, Z = -50 to +50`.
+- **Warung Pecel Lele & Street Food Hub:** `X = 27, Y = 0.8, Z = 34`.
+- **Background Skyline Framing:** `X = -20, Y = 0, Z = -110` (Non-collidable background).
 
-### B. Board Tile Distribution (24 Total Nodes)
+### B. Vertical Slice Board Nodes (Embedded 3D Pedestals)
 
-| Node ID | Physical Location | District | Tile Type | Visual Treatment |
+| Node ID | Physical Coordinates (Vector3) | District / Location | Node Type | Gameplay & Visual Treatment |
 | :--- | :--- | :--- | :--- | :--- |
-| `N_START` | Gambir Station Platform 1 | Gambir | Start / Departure | Golden stone emblem with train icon |
-| `N_01` | Gambir Ticket Concourse | Gambir | Opportunity | Green clover coin |
-| `N_02` | Station Front Courtyard | Gambir | Property (Transit Kiosk)| Orange shophouse paving |
-| `N_03` | Gambir Crossroad Exit | Gambir | Event (Ojol Traffic) | Red exclamation tile |
-| `N_BRANCH_01` | T-Junction Senayan | Transition | Choice / Branch | Dual glowing directional arrows |
-| `N_SUD_01` | Sudirman Financial Ave 1 | Sudirman CBD | Property (Office Floor)| Blue corporate glass tile |
-| `N_SUD_02` | Halte TransSudirman | Sudirman CBD | Transit Hub | Busway icon tile |
-| `N_SUD_03` | Tower Bank Cuan | Sudirman CBD | Bank / ATM | Cyber teal ATM vault tile |
-| `N_SUD_04` | SCBD Coffee Corner | Sudirman CBD | Property (Cafe) | Roasted coffee bean badge |
-| `N_SUD_05` | Sudirman North Gate | Sudirman CBD | Corporate Dividend | Gold dividend payout tile |
-| `N_GANG_01` | Gang Senggol Entrance | Gang Senggol | Property (Warkop) | Wooden plank texture tile |
-| `N_GANG_02` | Warung Pecel Lele | Gang Senggol | Culinary Hotspot | Lele fish emblem tile |
-| `N_GANG_03` | Pos Ronda & Arisan | Gang Senggol | Chaos Event (Satpol PP)| Striped warning hazard tile |
-| `N_GANG_04` | Pasar Kaget Subuh | Gang Senggol | Property (Kios Sayur) | Vegetable basket badge |
-| `N_GANG_05` | Bengkel Motor Mas Joko | Gang Senggol | High-Stakes Gacha | Dice gamble lucky tile |
-| `N_MERGE_01` | Bunderan HI Roundabout | Transition | Merge Node | Circular paving stone with fountain view |
-| `N_16` | Jl. Medan Merdeka Barat | Monas Approach | Opportunity | Green Rupiah coin |
-| `N_17` | Gerbang Barat Monas | Monas Approach | Property (Tourism Stall)| Red-white national ribbon |
-| `N_18` | Pelataran Cawan Monas | Monas Plaza | Grand Event | Star medallion |
-| `N_19` | Taman Merdeka Selatan | Monas Plaza | Property (Souvenir Hub)| Batik motif tile |
-| `N_FINISH` | Tugu Monas Base | Monas Plaza | Victory / Climax | Grand golden pedestal with fire aura |
+| `N_START` | `(-26.0, 2.56, 0.0)` | Gambir Platform 1 | Start | Golden stone slab with 🚆 train icon; player arrival point. |
+| `N_01` | `(-18.0, 2.56, 12.0)` | Concourse Tiket Gambir | Opportunity | Emerald luck slab with 🪙 Rupiah coin; chance event. |
+| `N_02` | `(-10.0, 0.86, 22.0)` | Pangkalan Bajaj Gambir | Property | Transit blue slab with 🛺 bajaj emblem; purchasable kiosk. |
+| `N_03` | `(-8.0, 0.86, 29.0)` | Penyeberangan Zebra Cross | Event | Coral warning slab with ⚠️ exclamation; traffic check. |
+| `N_BRANCH_01` | `(5.0, 0.46, 29.0)` | Simpang Senayan / Zebra Cross | Branch | Golden crossroads slab with 🔀 branch fork indicator. |
+| `N_GANG_01` | `(18.0, 0.86, 29.0)` | Kios Sayur Gang Senggol | Property | Orange commercial slab with 🏪 kiosk icon; affordable shop. |
+| `N_GANG_02` | `(22.0, 0.86, 36.0)` | Warung Pecel Lele Cak Slamet | Property | Caramel culinary slab with 🍲 meal badge; high-return eatery. |
+| `N_FINISH` | `(22.0, 0.86, 50.0)` | Monas Plaza Showcase | Finish | Golden finish victory pedestal. |
 
 ---
 
